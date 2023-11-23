@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/theme1icon"
+        android:id="@+id/camViewTheme1"
+        android:title="@string/menuFirst" />
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/theme2icon"
+        android:id="@+id/camViewTheme2"
+        android:title="@string/menuSecond" />
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/theme3icon"
+        android:id="@+id/camViewTheme3"
+        android:title="@string/menuThird" />
+</menu>

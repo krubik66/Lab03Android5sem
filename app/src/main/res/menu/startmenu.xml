@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="@string/menuReset"
+        android:id="@+id/menuReset"
+        android:icon="@drawable/refreshtheme"
+        app:showAsAction="always"/>
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="@string/menuFirst"
+        android:icon="@drawable/theme1icon"
+        android:id="@+id/menuFirst"/>
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="@string/menuSecond"
+        android:icon="@drawable/theme2icon"
+        android:id="@+id/menuSecond"/>
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="@string/menuThird"
+        android:icon="@drawable/theme3icon"
+        android:id="@+id/menuThird"/>
+</menu>

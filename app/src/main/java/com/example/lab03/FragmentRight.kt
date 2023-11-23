@@ -1,10 +1,18 @@
 package com.example.lab03
 
+import android.app.DatePickerDialog
 import android.os.Bundle
+import android.view.ActionMode
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.DatePicker
+import android.widget.TextView
+import com.google.android.material.appbar.AppBarLayout
+import java.util.Calendar
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,6 +35,8 @@ class FragmentRight : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+
     }
 
     override fun onCreateView(
@@ -55,5 +65,79 @@ class FragmentRight : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    private var myAM: ActionMode? = null
+
+    val myAMCallback: ActionMode.Callback = object: ActionMode.Callback {
+        override fun onCreateActionMode(mode: ActionMode?, menu: Menu?): Boolean {
+            requireActivity().menuInflater.inflate(R.menu.cam_view, menu)
+            requireActivity().findViewById<AppBarLayout>(R.id.appbarMain).visibility = View.GONE
+            return true
+        }
+
+        override fun onPrepareActionMode(mode: ActionMode?, menu: Menu?): Boolean {
+            return true
+        }
+
+        override fun onActionItemClicked(mode: ActionMode?, item: MenuItem?): Boolean {
+            val colorText: TextView = requireActivity().findViewById(R.id.colorText)
+            return when(item?.itemId) {
+                R.id.camViewTheme1 -> {
+                    colorText.setBackgroundColor(requireActivity().getColor(R.color.md_theme3_light_primary))
+                    mode?.finish()
+                    true
+                }
+                R.id.camViewTheme2 -> {
+                    colorText.setBackgroundColor(requireActivity().getColor(R.color.md_theme1_light_primary))
+                    mode?.finish()
+                    true
+                }
+                R.id.camViewTheme3 -> {
+                    colorText.setBackgroundColor(requireActivity().getColor(R.color.md_theme2_light_primary))
+                    mode?.finish()
+                    true
+                }
+                else -> {
+                    true
+                }
+            }
+        }
+        override fun onDestroyActionMode(mode: ActionMode?) {
+            myAM = null
+            (requireActivity().findViewById<AppBarLayout>(R.id.appbarMain)).visibility = View.VISIBLE
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val dateText: TextView = view.findViewById(R.id.dateText)
+        dateText.setOnClickListener {_ ->
+            val calendar = Calendar.getInstance()
+
+            val dateDialog = DatePickerDialog(
+                requireContext(),
+                DatePickerDialog.OnDateSetListener { _: DatePicker?, year: Int, monthOfYear: Int,
+                                                     dayOfMonth: Int ->
+                    dateText.text = "$dayOfMonth-${monthOfYear + 1}-$year"
+                },
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+            )
+
+            dateDialog.show()
+        }
+
+        val colorText: TextView = view.findViewById(R.id.colorText)
+        colorText.setOnLongClickListener(View.OnLongClickListener { _ ->
+            if(myAM != null) {
+                return@OnLongClickListener false
+            }
+            myAM = requireActivity().startActionMode(myAMCallback)
+            true
+        })
+
     }
 }

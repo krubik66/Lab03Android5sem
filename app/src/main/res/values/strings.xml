@@ -17,4 +17,38 @@
     <string name="menuLeft">Left</string>
     <string name="menuRight">Right</string>
     <string name="menuMain">Main</string>
+
+    <string name="fontSize">Font Size</string>
+    <string name="fontType">Font Type</string>
+
+    <string name="MainButtonLeft">Left</string>
+    <string name="MainButtonRight">Right</string>
+
+    <string name="menuReset">Reset</string>
+    <string name="menuFirst">Theme1</string>
+    <string name="menuSecond">Theme2</string>
+    <string name="menuThird">Theme3</string>
+
+    <string name="menuText">Font Size Menu</string>
+    <string name="font20">Size 20</string>
+    <string name="font22">Size 22</string>
+    <string name="font24">Size 24</string>
+
+    <string name="menuFont">Font Type Menu</string>
+    <string name="boldFont">Bold</string>
+    <string name="italicFont">Italic</string>
+
+    <string name="titleRight">Personal Data</string>
+
+    <string name="prefColor">Preferred color</string>
+    <string name="color">Color</string>
+
+    <string name="birthDate">Birth Date</string>
+    <string name="dateText">Date</string>
+
+    <string name="backRightButton">Back</string>
+
+    <string name="radioButton1">Green</string>
+    <string name="radioButton2">Blue</string>
+    <string name="radioButton3">Purple</string>
 </resources>
