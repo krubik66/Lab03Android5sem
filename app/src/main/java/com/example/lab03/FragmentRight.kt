@@ -1,6 +1,10 @@
 package com.example.lab03
 
+import android.app.AlertDialog
 import android.app.DatePickerDialog
+import android.content.Context
+import android.content.DialogInterface
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.ActionMode
 import androidx.fragment.app.Fragment
@@ -9,7 +13,10 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.DatePicker
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.TextView
 import com.google.android.material.appbar.AppBarLayout
 import java.util.Calendar
@@ -111,6 +118,37 @@ class FragmentRight : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        val backButton: Button = requireActivity().findViewById(R.id.backRightButton)
+        backButton.setOnClickListener { _ ->
+            val builder = AlertDialog.Builder(requireContext())
+            val inflater = LayoutInflater.from(requireContext())
+            val viewRadio = inflater.inflate(R.layout.dialogbackmessage, null)
+            val radioGroup: RadioGroup = viewRadio.findViewById(R.id.radioGroup)
+            builder.setTitle("Go Back Dialog")
+            builder.setView(viewRadio)
+            builder.setMessage("What color is the best?\nAre you sure at 100%?")
+            builder.setPositiveButton("Yes") { _: DialogInterface, _: Int ->
+                if (radioGroup.checkedRadioButtonId != -1) {
+                    val selectedRadioButton: RadioButton =
+                        viewRadio.findViewById(radioGroup.checkedRadioButtonId)
+                    val data: SharedPreferences =
+                        requireActivity().getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
+                    val editor = data.edit()
+                    editor.putString("color", selectedRadioButton.text.toString())
+                    editor.putBoolean("isRated", true)
+                    editor.apply()
+                    requireActivity().onBackPressed()
+                } else requireActivity().onBackPressed()
+            }
+            builder.setNegativeButton("No") { dialog: DialogInterface, _: Int ->
+                dialog.cancel()
+            }
+
+            val alertDialog = builder.create()
+            alertDialog.show()
+        }
 
         val dateText: TextView = view.findViewById(R.id.dateText)
         dateText.setOnClickListener {_ ->
