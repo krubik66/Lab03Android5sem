@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Lab03</string>
+
+    <string name="fragment_1">Fragment 1</string>
+    <string name="fragment_2">Fragment 2</string>
+
+    <string name="radioMain1">Option 1</string>
+    <string name="radioMain2">Option 2</string>
+
+    <string name="dataMain">data</string>
+
+    <string name="returnData">Send value</string>
+    <string name="rightFragment">Right fragment</string>
+    <string name="leftFragment">Left fragment</string>
+    <string name="go">GO</string>
+
+    <string name="menuLeft">Left</string>
+    <string name="menuRight">Right</string>
+    <string name="menuMain">Main</string>
+</resources>

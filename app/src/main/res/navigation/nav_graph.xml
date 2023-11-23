@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentCenter">
+
+    <fragment
+        android:id="@+id/fragmentCenter"
+        android:name="com.example.lab03.FragmentCenter"
+        android:label="fragment_center"
+        tools:layout="@layout/fragment_center" />
+    <fragment
+        android:id="@+id/fragmentLeft"
+        android:name="com.example.lab03.FragmentLeft"
+        android:label="fragment_left"
+        tools:layout="@layout/fragment_left" />
+    <fragment
+        android:id="@+id/fragmentRight"
+        android:name="com.example.lab03.FragmentRight"
+        android:label="fragment_right"
+        tools:layout="@layout/fragment_right" />
+
+    <action
+        android:id="@+id/action_to_left_fragment"
+        app:destination="@id/fragmentLeft"
+        app:launchSingleTop="true"
+        app:popUpTo="@id/fragmentCenter"
+        />
+
+    <action
+        android:id="@+id/action_to_center_fragment"
+        app:destination="@id/fragmentCenter"
+        app:launchSingleTop="true"
+        app:popUpTo="@id/fragmentCenter"
+        />
+
+    <action
+        android:id="@+id/action_to_right_fragment"
+        app:destination="@id/fragmentRight"
+        app:launchSingleTop="true"
+        app:popUpTo="@id/fragmentCenter"
+        />
+</navigation>
