@@ -51,4 +51,9 @@
     <string name="radioButton1">Green</string>
     <string name="radioButton2">Blue</string>
     <string name="radioButton3">Purple</string>
+
+    <string name="textExtraHint">Podaj tekst</string>
+    <string name="startTextExtra">Staręga</string>
+
+    <string name="returnDataLeft">Returned data will be here</string>
 </resources>

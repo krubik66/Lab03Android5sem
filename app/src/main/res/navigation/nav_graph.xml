@@ -14,7 +14,11 @@
         android:id="@+id/fragmentLeft"
         android:name="com.example.lab03.FragmentLeft"
         android:label="fragment_left"
-        tools:layout="@layout/fragment_left" />
+        tools:layout="@layout/fragment_left" >
+        <action
+            android:id="@+id/action_fragmentLeft_to_extraFragment"
+            app:destination="@id/extraFragment" />
+    </fragment>
     <fragment
         android:id="@+id/fragmentRight"
         android:name="com.example.lab03.FragmentRight"
@@ -41,4 +45,9 @@
         app:launchSingleTop="true"
         app:popUpTo="@id/fragmentCenter"
         />
+    <fragment
+        android:id="@+id/extraFragment"
+        android:name="com.example.lab03.ExtraFragment"
+        android:label="fragment_extra"
+        tools:layout="@layout/fragment_extra" />
 </navigation>
